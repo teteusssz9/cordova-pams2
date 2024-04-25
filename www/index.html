@@ -8,6 +8,7 @@
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
         <meta name="color-scheme" content="light dark">
         <link href="css/estilo.css" rel="stylesheet" />
+        <link href="css/bootstrap.min.css" rel="stylesheet" />
         <title>App Fernando</title>
     </head>
     <body>
@@ -15,11 +16,13 @@
             <div id="top"></div>
             <div id="meio">
                 <div>
-                    <button id="cep">
+                    <button id="cep" class="btn btn-primary">
                         Clique aqui para buscar o CEP
                     </button>
                 </div>
-                <div>2</div>
+                <div>
+                    <input class="form-control" id="meu-cep" />
+                </div>
                 <div>3</div>
                 <div>4</div>
                 <div>5</div>
@@ -29,5 +32,6 @@
             <div id="footer"></div>
         </div>
        <script src="js/index.js" ></script>
+       <script src="js/bootstrap.bundle.min.js" ></script>
     </body>
 </html>
