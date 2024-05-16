@@ -8,6 +8,7 @@ function lerclientes()
     {
         
         let corpotabela = document.querySelector("#corpotabela")
+        corpotabela.innerHTML = "";
         let dados = JSON.parse(this.response)
         console.log(dados)
         dados.forEach( function (valor, chave)
@@ -21,7 +22,6 @@ function lerclientes()
             novalinha.append(celulaCelular)
             corpotabela.append(novalinha)
         });
-
-        console.log(this.response)
+        //console.log(this.response)
     } 
 }
