@@ -1,132 +1,114 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="format-detection" content="telephone=no">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
-        <meta name="color-scheme" content="light dark">
-       
-        <link href="css/css-bootstrap/bootstrap.css" rel="stylesheet" />
-        <link href="css/estilo.css" rel="stylesheet" />
-        <title>App Fernando</title>
-    </head>
-    <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container-fluid">
-              <a class="navbar-brand text-white " href="#">Meu App</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                  <a class="nav-link text-white active" aria-current="page" href="#">Home</a>
-                  <a class="nav-link  text-white " href="#">Features</a>
-                  <a class="nav-link text-white " href="#">Pricing</a>
-                  <a class="nav-link  text-white ">Disabled</a>
+<head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <meta name="color-scheme" content="light dark">
+   
+    <link href="css/css-bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="css/estilo.css" rel="stylesheet" />
+
+    <!-- jQuery Mobile CSS -->
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!-- jQuery Mobile JS -->
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <title>App Fernando</title>
+</head>
+<body>
+    <!-- Página de Listar Clientes -->
+    <div data-role="page" id="listarClientes">
+        <div data-role="header">
+            <h1>Listar Clientes</h1>
+            <a href="#cadastrarCliente" class="ui-btn ui-btn-right">Cadastrar Novo</a>
+        </div>
+        <div data-role="main" class="ui-content">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Celular</th>
+                    </tr>
+                </thead>
+                <tbody id="corpotabela"></tbody>
+            </table>
+            <button class="btn btn-warning" onclick="lerclientes()">Ler Clientes</button>
+        </div>
+    </div>
+
+    <!-- Página de Cadastrar Cliente -->
+    <div data-role="page" id="cadastrarCliente">
+        <div data-role="header">
+            <h1>Cadastrar Cliente</h1>
+            <a href="#listarClientes" class="ui-btn ui-btn-right">Voltar</a>
+        </div>
+        <div data-role="main" class="ui-content">
+            <form>
+                <div class="ui-field-contain">
+                    <label for="nome">Nome:</label>
+                    <input type="text" name="nome" id="nome" value="">
                 </div>
-              </div>
-            </div>
-          </nav>
-
-        <div class="row">
-            <div class="col-sm-12 col-xs-12">
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" id="cep" placeholder="Cep" aria-label="Cep" aria-describedby="button">
-                    <button class="btn btn-primary" id="botao">Pesquisar CEP</button>
-                  </div>
-            </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-12">
-              <label>Nome</label>
-              <input class="form-control" type="text" id="nome" />
-          </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12">
-            <label>Documento</label>
-            <input class="form-control" type="text" id="documento" />
-        </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12">
-          <label>Celular</label>
-          <input class="form-control" type="text" id="celular" />
-      </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-12">
-        <label>Endereço</label>
-        <input class="form-control" type="text" id="logradouro" />
-    </div>
-</div>
-<div class="row">
-  <div class="col-xs-12">
-      <label>Numero</label>
-      <input class="form-control" type="text" id="numero" />
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12">
-      <label>Bairro</label>
-      <input class="form-control" type="text" id="bairro" />
-  </div>
-</div>
-
-        <div class="row">
-            <div class="col-xs-12">
-                <label>Cidade</label>
-                <input class="form-control" type="text" id="cidade" />
-            </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-12">
-              <label>Estado</label>
-              <input class="form-control" type="text" id="estado" />
-          </div>
-      </div>
-
-      <div class="row">
-        <div class="col-xs-12">
-           <button class="btn btn-success" onclick="enviar()" >
-            Salvar dados
-           </button>
+                <div class="ui-field-contain">
+                    <label for="documento">Documento:</label>
+                    <input type="text" name="documento" id="documento" value="">
+                </div>
+                <div class="ui-field-contain">
+                    <label for="celular">Celular:</label>
+                    <input type="text" name="celular" id="celular" value="">
+                </div>
+                <div class="ui-field-contain">
+                    <label for="logradouro">Endereço:</label>
+                    <input type="text" name="logradouro" id="logradouro" value="">
+                </div>
+                <div class="ui-field-contain">
+                    <label for="numero">Numero:</label>
+                    <input type="text" name="numero" id="numero" value="">
+                </div>
+                <div class="ui-field-contain">
+                    <label for="bairro">Bairro:</label>
+                    <input type="text" name="bairro" id="bairro" value="">
+                </div>
+                <div class="ui-field-contain">
+                    <label for="cidade">Cidade:</label>
+                    <input type="text" name="cidade" id="cidade" value="">
+                </div>
+                <div class="ui-field-contain">
+                    <label for="estado">Estado:</label>
+                    <input type="text" name="estado" id="estado" value="">
+                </div>
+                <button class="ui-btn ui-btn-b" onclick="enviar()">Salvar dados</button>
+            </form>
         </div>
     </div>
 
-    <div class="row">
-      <div class="col-xs-12">
-         <button class="btn btn-warning" onclick="lerclientes()" >
-          Ler Clientes
-         </button>
-      </div>
-  </div>
+    <!-- Página de Login -->
+    <div data-role="page" id="login">
+        <div data-role="header">
+            <h1>Login</h1>
+        </div>
+        <div data-role="main" class="ui-content">
+            <form>
+                <div class="ui-field-contain">
+                    <label for="username">Usuário:</label>
+                    <input type="text" name="username" id="username" value="">
+                </div>
+                <div class="ui-field-contain">
+                    <label for="password">Senha:</label>
+                    <input type="password" name="password" id="password" value="">
+                </div>
+                <button class="ui-btn ui-btn-b">Entrar</button>
+            </form>
+        </div>
+    </div>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th>Celular</th>
-    </tr>
-  </thead>
-  <tbody id="corpotabela"></tbody>
-</table>
-
-       <button class="btn btn-danger" onclick="salvarLocal('Nome','Joaquim')">
-          Cadastrar no LocalStoreage
-       </button>
-        <br/>
-        <button class="btn btn-warning" onclick="lerLocal()">
-          Ler Storeage
-        </button>
-
-
-        <script src="js/js-bootstrap/bootstrap.bundle.js"></script>
-        <script src="js/index.js"></script>
-        <script src="js/cadastrocliente.js" ></script>
-        <script src="js/lerclientes.js" ></script>
-        <script src="js/armazenar.js"></script>
-
-    </body>
+    <script src="js/js-bootstrap/bootstrap.bundle.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/cadastrocliente.js"></script>
+    <script src="js/lerclientes.js"></script>
+    <script src="js/armazenar.js"></script>
+</body>
 </html>
